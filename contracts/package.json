@@ -1,0 +1,15 @@
+{
+  "name": "@kage/contracts",
+  "private": true,
+  "version": "0.1.0",
+  "description": "PolkaVM (resolc) build tooling for the Solidity contracts; Foundry (forge) is the primary dev/test toolchain.",
+  "scripts": {
+    "build:polkavm": "bash scripts/build-polkavm.sh"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "5.1.0"
+  },
+  "devDependencies": {
+    "@parity/resolc": "^1.4.0"
+  }
+}

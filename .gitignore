@@ -8,6 +8,7 @@ contracts/cache/
 contracts/broadcast/*/31337/
 contracts/lib/forge-std/
 contracts/lib/openzeppelin-contracts/
+contracts/build/
 
 # circuit build artifacts (large, regenerable)
 circuits/build/
