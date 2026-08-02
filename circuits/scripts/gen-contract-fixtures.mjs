@@ -140,3 +140,9 @@ await writeFile(
 );
 
 console.log("wrote", path.join(OUT_DIR, "valid_withdraw_d1.json"));
+
+// snarkjs/ffjavascript keep a worker-thread pool alive for curve
+// arithmetic once groth16 proving has happened; without this the process
+// never exits on its own.
+const curve = await snarkjs.curves.getCurveFromName("bn128");
+await curve.terminate();
