@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kage — anonymity set monitor</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="page-header">
+        <h1>Kage anonymity set monitor</h1>
+        <p class="subtitle">Per-denomination deposit counts and a heuristic privacy score, read directly from the pool contract.</p>
+      </header>
+
+      <form id="connect-form" class="connect-form">
+        <label>
+          <span>RPC URL</span>
+          <input id="rpc-url" type="text" value="http://127.0.0.1:8545" required />
+        </label>
+        <label>
+          <span>Pool address</span>
+          <input id="pool-address" type="text" placeholder="0x..." required />
+        </label>
+        <label class="target-input">
+          <span>Target set size</span>
+          <input id="target-size" type="number" value="100" min="1" required />
+        </label>
+        <button type="submit">Connect</button>
+      </form>
+
+      <p id="status" class="status" role="status"></p>
+
+      <div id="kpi-row" class="kpi-row" hidden></div>
+
+      <table id="table" class="table" hidden>
+        <thead>
+          <tr>
+            <th>Denomination</th>
+            <th>Anonymity set size</th>
+            <th>Privacy score</th>
+            <th>Current root</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

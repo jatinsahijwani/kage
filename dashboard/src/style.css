@@ -1,0 +1,225 @@
+:root {
+  color-scheme: light;
+  --surface-0: #f5f4f1;
+  --surface-1: #fcfcfb;
+  --surface-2: #ffffff;
+  --border: #e2e0da;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #83817a;
+  --accent: #2a78d6;
+  --accent-track: #cde2fb;
+  --good: #0ca30c;
+  --warning: #fab219;
+  --critical: #d03b3b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --surface-0: #141413;
+    --surface-1: #1a1a19;
+    --surface-2: #201f1e;
+    --border: #34332f;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #8c8b83;
+    --accent: #3987e5;
+    --accent-track: #184f95;
+    --good: #0ca30c;
+    --warning: #fab219;
+    --critical: #e66767;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface-0: #141413;
+  --surface-1: #1a1a19;
+  --surface-2: #201f1e;
+  --border: #34332f;
+  --text-primary: #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted: #8c8b83;
+  --accent: #3987e5;
+  --accent-track: #184f95;
+  --good: #0ca30c;
+  --warning: #fab219;
+  --critical: #e66767;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--surface-0);
+  color: var(--text-primary);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.page-header h1 {
+  margin: 0 0 0.35rem;
+  font-size: 1.5rem;
+  font-weight: 650;
+}
+
+.subtitle {
+  margin: 0 0 2rem;
+  color: var(--text-secondary);
+  max-width: 60ch;
+}
+
+.connect-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: end;
+  padding: 1rem;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.connect-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  flex: 1 1 220px;
+}
+
+.connect-form .target-input {
+  flex: 0 1 120px;
+}
+
+.connect-form input {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-2);
+  color: var(--text-primary);
+  font: inherit;
+}
+
+.connect-form button {
+  padding: 0.55rem 1.1rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: white;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  height: fit-content;
+}
+
+.connect-form button:hover {
+  filter: brightness(1.08);
+}
+
+.status {
+  min-height: 1.2rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.status[data-tone="error"] {
+  color: var(--critical);
+}
+
+.status[data-tone="ok"] {
+  color: var(--good);
+}
+
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.stat-tile {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem 1.2rem;
+}
+
+.stat-tile .label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.stat-tile .value {
+  font-size: 2rem;
+  font-weight: 650;
+  margin: 0.15rem 0 0.7rem;
+  font-variant-numeric: proportional-nums;
+}
+
+.stat-tile .meter-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+
+.meter-track {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent-track);
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.table th {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.table td.mono {
+  font-family: ui-monospace, "SF Mono", monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
