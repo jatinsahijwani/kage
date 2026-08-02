@@ -1,0 +1,22 @@
+{
+  "name": "kage",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Fixed-denomination shielded pool and relayer toolkit for Kusama Asset Hub",
+  "workspaces": [
+    "circuits",
+    "sdk",
+    "relayer",
+    "dashboard",
+    "demo",
+    "bench"
+  ],
+  "scripts": {
+    "setup": "bash scripts/setup-dev.sh",
+    "demo": "npm run demo -w demo"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

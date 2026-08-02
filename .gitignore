@@ -1,0 +1,27 @@
+node_modules/
+dist/
+build/
+
+# forge
+contracts/out/
+contracts/cache/
+contracts/broadcast/*/31337/
+contracts/lib/forge-std/
+contracts/lib/openzeppelin-contracts/
+
+# circuit build artifacts (large, regenerable)
+circuits/build/
+circuits/*.ptau
+circuits/*.zkey
+!circuits/build/.gitkeep
+
+# env
+.env
+.env.local
+*.pem
+
+# logs
+*.log
+npm-debug.log*
+
+.DS_Store
