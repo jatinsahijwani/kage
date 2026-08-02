@@ -1,6 +1,6 @@
 # Architecture
 
-Status: draft, filled in as each component lands. See root README for the quickstart.
+See the root README for the quickstart and repo layout.
 
 ## Overview
 
@@ -71,7 +71,7 @@ Private signals: `nullifier, secret, pathElements[20], pathIndices[20]`
 3. Merkle inclusion: walk `pathElements`/`pathIndices` with Poseidon(2) at
    each level, constrain the computed root equals the public `root`.
 4. Fixed denomination: `(amount - D1) * (amount - D2) === 0`.
-5. Fee bound: `fee < amount` via a `LessThan` range check.
+5. Fee bound: `fee <= amount` via a `LessEqThan` range check.
 6. Binding: `recipient`, `relayer` are wired into real constraints (forced
    "square" signals) so they are genuinely part of the R1CS instance, not
    just unused public inputs — a proof cannot be replayed with different
