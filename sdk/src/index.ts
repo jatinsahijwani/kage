@@ -4,3 +4,4 @@ export { createNote, serializeNote, parseNote, commitmentOf, nullifierHashOf, ty
 export { KageMerkleTree } from "./merkleTree.js";
 export { buildWithdrawProof, verifyWithdrawProofOffChain, type WithdrawCalldata } from "./proof.js";
 export { terminateCurve } from "./curve.js";
+export { deployPool, depositNote, type DeployedPool } from "./devnet.js";

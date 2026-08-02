@@ -11,6 +11,14 @@ library PoseidonT3 {
 
   // See here for a simplified implementation: https://github.com/vimwitch/poseidon-solidity/blob/e57becdabb65d99fdc586fe1e1e09e7108202d53/contracts/Poseidon.sol#L40
   // Inspired by: https://github.com/iden3/circomlibjs/blob/v0.0.8/src/poseidon_slow.js
+  // Left `public` (matches upstream) rather than `internal`: this assembly
+  // reads its arguments from fixed memory offsets (0x80/0xa0) that are
+  // only guaranteed when Solidity's own external-call ABI encoding placed
+  // them there. Inlining as `internal` breaks that assumption and produces
+  // wrong hashes once called from inside a loop. Deployers must link this
+  // library's address into callers' bytecode (see sdk/src/devnet.ts and
+  // any real deploy script) — upstream:
+  // https://github.com/vimwitch/poseidon-solidity, MIT.
   function hash(uint[2] memory) public pure returns (uint) {
     assembly {
       let F := 21888242871839275222246405745257275088548364400416034343698204186575808495617
