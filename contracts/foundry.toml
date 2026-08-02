@@ -6,6 +6,7 @@ solc = "0.8.24"
 optimizer = true
 optimizer_runs = 200
 gas_reports = ["KageShieldedPool"]
+fs_permissions = [{ access = "read", path = "test/fixtures" }]
 
 remappings = [
     "forge-std/=lib/forge-std/src/",
