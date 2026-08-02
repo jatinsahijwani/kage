@@ -9,6 +9,7 @@ import {
   createNote,
   deployPool,
   depositNote,
+  fundAccount,
   KageMerkleTree,
   buildWithdrawProof,
   terminateCurve,
@@ -68,7 +69,7 @@ before(async () => {
   poolAddress = await pool.getAddress();
 
   // fund the relayer's freshly-generated wallet so it can pay gas
-  await (await deployer.sendTransaction({ to: relayerWallet.address, value: parseEther("10") })).wait();
+  await fundAccount(deployer, relayerWallet.address, parseEther("10"));
 
   process.env.RPC_URL = RPC_URL;
   process.env.PRIVATE_KEY = relayerWallet.privateKey;
